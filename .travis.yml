@@ -1,0 +1,14 @@
+language: python
+python:
+  - "3.9"
+
+before_install:
+  -pip install pycodestyle
+
+install:
+  - pip install pytest==6.2.5 coverage==6.0
+
+script:
+  - pytest
+  - coverage run --source="src/" -m pytest
+  - pycodestyle src/ --ignore=E722, E501, E402
